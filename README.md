@@ -4,10 +4,7 @@ Cheatsheet for different command line tools and scripts:
 
 - Git
 
-- Bash
-
 - Nginx
 
-- Redis
 
-- Linux
+Other commands will be added succesively...

@@ -1,94 +1,89 @@
 -----------------------------------------------------------------
-Show available images
+Create git repository
 -----------------------------------------------------------------
 
-    docker images;
+	git init
 
 -----------------------------------------------------------------
-Show running containers
+Create bare git repository
+-----------------------------------------------------------------
+
+	git init --bare
+
+-----------------------------------------------------------------
+Check status of repository
 -----------------------------------------------------------------
 	
-    docker ps;
+	git status
 
 -----------------------------------------------------------------
-Remove image
+Stage all files
+-----------------------------------------------------------------
+
+	git add --all
+
+-----------------------------------------------------------------
+Create a commit
 -----------------------------------------------------------------
 	
-    docker rmi 7f9d92fc996f
-
+	git commit -m "Some informative message"
+	
 -----------------------------------------------------------------
-Remove container
+Look at commits on branch
 -----------------------------------------------------------------
 	
-    docker rm  7f9d92fc996f
-
+	git log --oneline
+		
 -----------------------------------------------------------------
-Save and compress image
+Squash last two commits interactively
 -----------------------------------------------------------------
-
-    docker save example-1.0 > example-1.0.tar; 
-    gzip example-1.0.tar > example-1.0.tar.gz
-
+		
+	git rebase -i HEAD~2
+		
 -----------------------------------------------------------------
-Load image from tar.gz
------------------------------------------------------------------
-	
-    docker load example-1.0.tar.gz	
-
------------------------------------------------------------------
-Run container in background
+Rebase commits from other branch to current branch
 -----------------------------------------------------------------
 	
-    docker run -d example-1.0
+	git rebase other_branch
 
 -----------------------------------------------------------------
-Run container with exposed port 8080
+Create new branch and switch to it
 -----------------------------------------------------------------
-
-    docker run -d -p 8080:8080 example-1.0
-
------------------------------------------------------------------
-Run bash in container
------------------------------------------------------------------
-
-    docker exec -it <mycontainer> bash
+	
+	git checkout -b newbranch
 
 -----------------------------------------------------------------
-Remove all containers
+Change current active branch (otherbranch)
 -----------------------------------------------------------------
 
-    docker rm $(sudo docker ps -aq);
+	git checkout otherbranch
 
 -----------------------------------------------------------------
-Stop all containers
+Check added remote repositories
 -----------------------------------------------------------------
 
-    docker stop $(docker ps -aq)
+	git remote -v
+	
+-----------------------------------------------------------------
+Add remote repository
+-----------------------------------------------------------------
+	
+	git remote add origin https://github.com/kamildabdev84/UsefulCommands.git
 
 -----------------------------------------------------------------
-Remove all images
+Remove remote repository (origin)
 -----------------------------------------------------------------
-    
-    docker rmi  $(docker images -aq);
+	
+	git remote rm origin
+	
+-----------------------------------------------------------------
+Push chosen branch (master) to remote repository (origin)
+-----------------------------------------------------------------
+	
+	git push origin master
 
------------------------------------------------------------------
-Run docker-compose script interactively
------------------------------------------------------------------
-    
-    docker-compose up
 
------------------------------------------------------------------
-Run docker-compose script as a deamon
------------------------------------------------------------------
 
-    docker-compose up -d
-
------------------------------------------------------------------
-Run these commands when user cannot run docker without sudo
------------------------------------------------------------------
-
-    sudo usermod -a -G docker $USER
-    reboot
 
 
 
