@@ -6,5 +6,6 @@ Cheatsheet for different command line tools and scripts:
 
 - Nginx
 
+- Mongo
 
 Other commands will be added succesively...
