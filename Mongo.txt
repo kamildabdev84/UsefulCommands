@@ -1,0 +1,67 @@
+--------------------------------------------------------------------------------
+Mongo installation Ubuntu 16.04 12.10.2018
+--------------------------------------------------------------------------------
+
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+	echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+	sudo apt-get update
+	sudo apt-get install -y mongodb-org
+
+
+--------------------------------------------------------------------------------
+Enable mongod running as a service on system start
+--------------------------------------------------------------------------------
+
+sudo systemctl enable mongod
+reboot
+
+--------------------------------------------------------------------------------
+Create root mongo user
+--------------------------------------------------------------------------------
+
+	db.createUser(
+	  {
+		user: "admin",
+		pwd: "admin",
+		roles: [ { role: "root", db: "admin" } ]
+	  }
+	);
+
+--------------------------------------------------------------------------------
+Create user with read and write access to given database
+--------------------------------------------------------------------------------
+
+	db.createUser({ 
+		user:"someone", 
+		pwd:"someone",
+		roles:[{ role: "readWrite", db: "example"  }]  
+	});
+
+--------------------------------------------------------------------------------
+Login user and promt password
+--------------------------------------------------------------------------------
+
+	mongo --username someone --authenticationDatabase example --password
+
+--------------------------------------------------------------------------------
+Create gzipped backup to one file
+--------------------------------------------------------------------------------
+
+	mongodump --db example --gzip --archive=example_timestamp.gz
+	mongodump --db example --gzip --archive=example_timestamp.gz --username admin
+	
+--------------------------------------------------------------------------------
+Restore backup from one gzipped file
+--------------------------------------------------------------------------------
+	
+	mongorestore --gzip --archive=example_timestamp.gz
+	mongorestore --gzip --archive=example_timestamp.gz --username admin
+
+--------------------------------------------------------------------------------
+Config - enable authorization in /etc/mongod.conf
+--------------------------------------------------------------------------------
+
+security:
+    authorization: "enabled"
+	
+	
