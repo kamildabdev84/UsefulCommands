@@ -2,93 +2,93 @@
 Show available images
 -----------------------------------------------------------------
 
-    docker images;
+docker images;
 
 -----------------------------------------------------------------
 Show running containers
 -----------------------------------------------------------------
 	
-    docker ps;
+docker ps;
 
 -----------------------------------------------------------------
 Remove image
 -----------------------------------------------------------------
 	
-    docker rmi 7f9d92fc996f
+docker rmi 7f9d92fc996f
 
 -----------------------------------------------------------------
 Remove container
 -----------------------------------------------------------------
 	
-    docker rm  7f9d92fc996f
+docker rm  7f9d92fc996f
 
 -----------------------------------------------------------------
 Save and compress image
 -----------------------------------------------------------------
 
-    docker save example-1.0 > example-1.0.tar; 
-    gzip example-1.0.tar > example-1.0.tar.gz
+docker save example-1.0 > example-1.0.tar; 
+gzip example-1.0.tar > example-1.0.tar.gz
 
 -----------------------------------------------------------------
 Load image from tar.gz
 -----------------------------------------------------------------
 	
-    docker load example-1.0.tar.gz	
+docker load example-1.0.tar.gz	
 
 -----------------------------------------------------------------
 Run container in background
 -----------------------------------------------------------------
 	
-    docker run -d example-1.0
+docker run -d example-1.0
 
 -----------------------------------------------------------------
 Run container with exposed port 8080
 -----------------------------------------------------------------
 
-    docker run -d -p 8080:8080 example-1.0
+docker run -d -p 8080:8080 example-1.0
 
 -----------------------------------------------------------------
 Run bash in container
 -----------------------------------------------------------------
 
-    docker exec -it <mycontainer> bash
+docker exec -it <mycontainer> bash
 
 -----------------------------------------------------------------
 Remove all containers
 -----------------------------------------------------------------
 
-    docker rm $(sudo docker ps -aq);
+docker rm $(sudo docker ps -aq);
 
 -----------------------------------------------------------------
 Stop all containers
 -----------------------------------------------------------------
 
-    docker stop $(docker ps -aq)
+docker stop $(docker ps -aq)
 
 -----------------------------------------------------------------
 Remove all images
 -----------------------------------------------------------------
     
-    docker rmi  $(docker images -aq);
+docker rmi  $(docker images -aq);
 
 -----------------------------------------------------------------
 Run docker-compose script interactively
 -----------------------------------------------------------------
     
-    docker-compose up
+docker-compose up
 
 -----------------------------------------------------------------
 Run docker-compose script as a deamon
 -----------------------------------------------------------------
 
-    docker-compose up -d
+docker-compose up -d
 
 -----------------------------------------------------------------
 Run these commands when user cannot run docker without sudo
 -----------------------------------------------------------------
 
-    sudo usermod -a -G docker $USER
-    reboot
+sudo usermod -a -G docker $USER
+reboot
 
 
 

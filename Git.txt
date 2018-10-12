@@ -2,89 +2,85 @@
 Create git repository
 -----------------------------------------------------------------
 
-	git init
+git init
 
 -----------------------------------------------------------------
 Create bare git repository
 -----------------------------------------------------------------
 
-	git init --bare
+git init --bare
 
 -----------------------------------------------------------------
 Check status of repository
 -----------------------------------------------------------------
 	
-	git status
+git status
 
 -----------------------------------------------------------------
 Stage all files
 -----------------------------------------------------------------
 
-	git add --all
+git add --all
 
 -----------------------------------------------------------------
 Create a commit
 -----------------------------------------------------------------
 	
-	git commit -m "Some informative message"
+git commit -m "Some informative message"
 	
 -----------------------------------------------------------------
 Look at commits on branch
 -----------------------------------------------------------------
 	
-	git log --oneline
+git log --oneline
 		
 -----------------------------------------------------------------
 Squash last two commits interactively
 -----------------------------------------------------------------
 		
-	git rebase -i HEAD~2
+git rebase -i HEAD~2
 		
 -----------------------------------------------------------------
 Rebase commits from other branch to current branch
 -----------------------------------------------------------------
 	
-	git rebase other_branch
+git rebase other_branch
 
 -----------------------------------------------------------------
 Create new branch and switch to it
 -----------------------------------------------------------------
 	
-	git checkout -b newbranch
+git checkout -b newbranch
 
 -----------------------------------------------------------------
 Change current active branch (otherbranch)
 -----------------------------------------------------------------
 
-	git checkout otherbranch
+git checkout otherbranch
 
 -----------------------------------------------------------------
 Check added remote repositories
 -----------------------------------------------------------------
 
-	git remote -v
+git remote -v
 	
 -----------------------------------------------------------------
 Add remote repository
 -----------------------------------------------------------------
 	
-	git remote add origin https://github.com/kamildabdev84/UsefulCommands.git
+git remote add origin https://github.com/kamildabdev84/UsefulCommands.git
 
 -----------------------------------------------------------------
 Remove remote repository (origin)
 -----------------------------------------------------------------
 	
-	git remote rm origin
+git remote rm origin
 	
 -----------------------------------------------------------------
 Push chosen branch (master) to remote repository (origin)
 -----------------------------------------------------------------
 	
-	git push origin master
-
-
-
-
+git push origin master
 
 
 
