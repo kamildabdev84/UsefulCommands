@@ -8,4 +8,6 @@ Cheatsheet for different command line tools and scripts:
 
 - Mongo
 
+- Linux
+
 Other commands will be added succesively...
