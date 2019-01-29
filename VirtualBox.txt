@@ -1,0 +1,22 @@
+-----------------------------------------------------------------
+How to shrink vdi file size in VirtualBox Linux guest system
+-----------------------------------------------------------------
+
+1.	Go to recovery mode 
+	a) press left shift on reboot to choose recovery mode from grub
+
+2.	Choose root
+
+3.	Run these commands
+	
+	telinit 1;
+	systemctl stop systemd-journald.socket;
+	systemctl stop systemd-journald.service;
+	mount -o ro,remount /dev/sda1
+	zerofree -v /dev/sda1
+	poweroff
+
+4.	In the host systemt run command
+	
+	In Windows --> VBoxManage.exe modifymedium disk "C:\path\to\disk.vdi" --compact
+	In Linux   --> vboxmanage modifymedium disk '/home/user/disk.vdi' --compact

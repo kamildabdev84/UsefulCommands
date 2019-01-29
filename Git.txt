@@ -82,6 +82,13 @@ Push chosen branch (master) to remote repository (origin)
 	
 git push origin master
 
+-----------------------------------------------------------------
+Create commit with other author details
+-----------------------------------------------------------------
+
+git commit --author="John Smith <john.smith@gmail.com>" -m "Example-1: Some useful commmit message"
+
+
 
 
 

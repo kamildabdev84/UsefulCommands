@@ -10,4 +10,6 @@ Cheatsheet for different command line tools and scripts:
 
 - Linux
 
+- SSH
+
 Other commands will be added succesively...
