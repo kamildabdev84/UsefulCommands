@@ -40,7 +40,37 @@ Generate example self-signed certificate
 	
 openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out example.crt -keyout example.key	
 
+-----------------------------------------------------------------
+Display directory tree with file sizes in Megabytes
+-----------------------------------------------------------------
 
+tree -h
+
+-----------------------------------------------------------------
+Observe end of file interactively
+-----------------------------------------------------------------
+
+tail -f /var/log/syslog
+
+-----------------------------------------------------------------
+Configure static ip address
+-----------------------------------------------------------------
+
+1.	Obtain network interface with ifconfig --> for example enp0s3
 	
+2.	Edit /etc/network/interfaces 
 	
-	
+auto enp0s3
+iface enp0s3 inet static
+   address 192.168.1.100
+   netmask 255.255.255.0
+   gateway 192.168.1.1
+   broadcast 192.168.1.255
+   dns-nameservers 8.8.8.8
+   
+3. Restart network   
+
+   sudo /etc/init.d/networking restart
+   sudo service networking restart
+   sudo reboot
+  
