@@ -1,0 +1,24 @@
+-----------------------------------------------------------------
+Add https to springboot
+-----------------------------------------------------------------
+
+1. Create key file
+
+    cd src/main/resources
+    keytool -genkeypair -alias tomcat -keyalg RSA -keysize 4096 -storetype PKCS12 -keystore keystorek.p12 -validity 365
+
+2. For each environment create proper application.properties file
+ 
+    src/main/resources/application-dev.properties
+    src/main/resources/application-prod.properties
+    src/main/resources/application-test.properties
+    src/main/resources/application-debug.properties
+
+3. In application-debug.properties add these lines
+
+    server.port=9943
+    security.require-ssl=true
+    server.ssl.key-store-type=PKCS12
+    server.ssl.key-store=classpath:keystorek.p12
+    server.ssl.key-store-password=yoursecretpasswordthatyouenteredduringkeycreation
+    server.ssl.key-alias=tomcat
